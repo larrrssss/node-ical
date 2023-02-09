@@ -607,6 +607,7 @@ module.exports = {
     UID: storeParameter('uid'),
     LOCATION: storeParameter('location'),
     DTSTART(value, parameters, curr) {
+      value = value.split('T')[1].length !== 6 ? value + 0 : value;
       curr = dateParameter('start')(value, parameters, curr);
       return typeParameter('datetype')(value, parameters, curr);
     },
